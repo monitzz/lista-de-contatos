@@ -4,6 +4,7 @@ const phoneInput = document.getElementById("phone-input");
 const tableBody = document.querySelector("tbody");
 let names = [];
 let phones = [];
+let rowCount = 1;
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -18,12 +19,15 @@ form.addEventListener("submit", function(e) {
 
     function renderTable() {
         let tableRowContent = "";
+        const darkRow = "<tr class='dark-row'>"
+        const lightRow = "<tr class='light-row'>"
 
-        tableRowContent += "<tr>";
+        tableRowContent += rowCount % 2 == 0 ? darkRow : lightRow;
         tableRowContent += `<td>${nameInput.value}</td>`
         tableRowContent += `<td>${phoneInput.value}</td>`
         tableRowContent += "</tr>";
 
         tableBody.innerHTML += tableRowContent;
+        rowCount++;
     }
 });

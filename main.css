@@ -56,7 +56,7 @@ form button {
 }
 
 table {
-  width: 28rem;
+  width: 35rem;
   margin: 0 auto;
 }
 
@@ -66,4 +66,12 @@ table th {
 
 table tr {
   font-size: 18pt;
+}
+
+.light-row {
+  background-color: hsl(345, 15%, 90%);
+}
+
+.dark-row {
+  background-color: hsl(345, 10%, 80%);
 }
