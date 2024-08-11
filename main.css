@@ -57,3 +57,7 @@ table {
   width: 28rem;
   margin: 0 auto;
 }
+
+table th {
+  border-bottom: solid 2px var(--dark-pink);
+}
