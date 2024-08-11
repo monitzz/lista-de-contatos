@@ -8,6 +8,8 @@
   box-sizing: border-box;
   text-align: center;
   color: var(--dark-pink);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
 }
 
 body {
