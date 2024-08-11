@@ -7,21 +7,28 @@
     <link rel="stylesheet" href="./main.css" type="text/css">
 </head>
 <body>
-    <header>
-        <h1>Lista de contatos</h1>
-    </header>
-    <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </main>
+    <div class="container">
+        <header>
+            <h1>Lista de contatos</h1>
+        </header>
+        <main>
+            <form>
+                <input id="name-input" type="text" placeholder="Nome" />
+                <input id="phone-input" type="tel" placeholder="Telefone" />
+                <button type="submit">Cadastrar</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </main>
+    </div>
     <script src="./main.js"></script>
 </body>
 </html>
