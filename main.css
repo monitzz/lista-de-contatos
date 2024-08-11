@@ -63,3 +63,7 @@ table {
 table th {
   border-bottom: solid 2px var(--dark-pink);
 }
+
+table tr {
+  font-size: 18pt;
+}
