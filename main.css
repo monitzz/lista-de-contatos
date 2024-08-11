@@ -1,5 +1,59 @@
+:root {
+  --dark-pink: hsl(344.6, 100%, 13.7%);
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  text-align: center;
+  color: var(--dark-pink);
+}
+
+body {
+  background-color: hsl(345, 100%, 98.4%);
+  padding-top: 8rem;
+}
+
+header h1 {
+  font-size: 28pt;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+main {
+  margin: 16px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form {
+  margin: 2.7rem 0 1.5rem 0;
+}
+
+form input {
+  border: solid 1px var(--dark-pink);
+}
+
+form button {
+  border: solid 1px hsl(344.6, 100%, 80%);
+  background-color: hsl(344.6, 100%, 85%)
+}
+
+form input,
+form button {
+  padding: 0.4rem;
+  font-size: 14pt;
+  border-radius: 8px;
+}
+
+table {
+  width: 28rem;
+  margin: 0 auto;
 }
