@@ -9,8 +9,63 @@ let rowCount = 1;
 form.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    addContact();
-    renderTable();
+    let phoneNumber = phoneInput.value;
+    let isNameValid = checkName();
+    let isPhoneValid = checkPhone();
+
+    if (isNameValid === true && isPhoneValid === true) {
+        addContact();
+        renderTable();
+    }
+    else if (isNameValid === false) {
+        alert("Nome inválido. Insira um nome com pelo menos duas letras.");
+    }
+    else if (isPhoneValid === false) {
+        alert("Telefone inválido. Use o seguinte padrão: +xx xx 9xxxx-xxxx");
+    }
+
+    function checkName() {
+        let pattern = /([A-Z]|[a-z]|\ )\w+/;
+        return pattern.test(nameInput.value);
+    }
+
+    function checkPhone() {
+        let mainPattern = /\+[0-9]{2}\ [0-9]{2}\ 9[0-9]{4}\-[0-9]{4}/;
+        let shortPattern = /[0-9]{13}/;
+        let matchesMainPattern = mainPattern.test(phoneInput.value);
+        let matchesShortPattern = shortPattern.test(phoneInput.value);
+        
+        if (matchesShortPattern ) {
+            let newNumber = "+";
+
+            for (let i = 0; i < 2; i++) {
+                newNumber += phoneNumber[i];
+            }
+
+            newNumber += " ";
+
+            for (let i = 2; i < 4; i++) {
+                newNumber += phoneNumber[i];
+            }
+
+            newNumber += " ";
+
+            for (let i = 4; i < 9; i++) {
+                newNumber += phoneNumber[i];
+            }
+
+            newNumber += "-";
+
+            for (let i = 9; i < 13; i++) {
+                newNumber += phoneNumber[i];
+            }
+
+            phoneNumber = newNumber;
+            console.log(newNumber);
+        }
+
+        return matchesMainPattern || matchesShortPattern;
+    }
 
     function addContact() {
         names.push(nameInput.value);
@@ -24,7 +79,7 @@ form.addEventListener("submit", function(e) {
 
         tableRowContent += rowCount % 2 == 0 ? darkRow : lightRow;
         tableRowContent += `<td>${nameInput.value}</td>`
-        tableRowContent += `<td>${phoneInput.value}</td>`
+        tableRowContent += `<td>${phoneNumber}</td>`
         tableRowContent += "</tr>";
 
         tableBody.innerHTML += tableRowContent;
