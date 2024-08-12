@@ -32,11 +32,14 @@ form.addEventListener("submit", function(e) {
     function checkPhone() {
         let mainPattern = /\+[0-9]{2}\ [0-9]{2}\ 9[0-9]{4}\-[0-9]{4}/;
         let shortPattern = /[0-9]{13}/;
+        let shorterPattern = /[0-9]{8}/;
         let matchesMainPattern = mainPattern.test(phoneInput.value);
         let matchesShortPattern = shortPattern.test(phoneInput.value);
+        let matchesShorterPatter = shorterPattern.test(phoneInput.value);
+        let newNumber = "";
         
         if (matchesShortPattern ) {
-            let newNumber = "+";
+            newNumber += "+";
 
             for (let i = 0; i < 2; i++) {
                 newNumber += phoneNumber[i];
@@ -60,11 +63,25 @@ form.addEventListener("submit", function(e) {
                 newNumber += phoneNumber[i];
             }
 
-            phoneNumber = newNumber;
-            console.log(newNumber);
+        }
+        else if (matchesShorterPatter) {
+            newNumber = "+55 51 9";
+
+            for (let i = 0; i <= 3; i++) {
+                newNumber += phoneNumber[i];
+            }
+
+            newNumber += "-";
+
+            for (let i = 4; i < 8; i++) {
+                newNumber += phoneNumber[i];
+            }
         }
 
-        return matchesMainPattern || matchesShortPattern;
+        phoneNumber = newNumber;
+        console.log(newNumber);
+
+        return matchesMainPattern || matchesShortPattern || matchesShorterPatter;
     }
 
     function addContact() {
