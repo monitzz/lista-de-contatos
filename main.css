@@ -66,13 +66,14 @@ form label {
 }
 
 form input {
-  border: solid 1px var(--dark-pink);
+  border: solid 1px hsl(345, 5%, 85%);
 }
 
 form button {
   border: solid 1px hsl(344.6, 100%, 80%);
   background-color: hsl(344.6, 100%, 85%);
   grid-area: 2 / 3;
+  font-weight: 600;
 }
 
 form input,
